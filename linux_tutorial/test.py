@@ -1,2 +1,2 @@
 print('Hello, Python')
-print('It was edited by VI')
+print('vi로 편집한 파이썬 파일입네다.')
