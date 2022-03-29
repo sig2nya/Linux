@@ -1,0 +1,16 @@
+--2022-03-29 09:50:37--  https://unsplash.com/photos/vxaGoMtr5IM/download?ixid=MnwxMjA3fDB8MXxhbGx8M3x8fHx8fDJ8fDE2NDg1NDYyNDg
+Resolving unsplash.com (unsplash.com)... 151.101.193.181, 151.101.65.181, 151.101.129.181, ...
+접속 unsplash.com (unsplash.com)|151.101.193.181|:443... 접속됨.
+HTTP request sent, awaiting response... 302 Found
+Location: https://images.unsplash.com/photo-1648487569696-07980cf8859a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb [following]
+--2022-03-29 09:50:37--  https://images.unsplash.com/photo-1648487569696-07980cf8859a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb
+Resolving images.unsplash.com (images.unsplash.com)... 146.75.50.208, 2a04:4e42:7c::720
+접속 images.unsplash.com (images.unsplash.com)|146.75.50.208|:443... 접속됨.
+HTTP request sent, awaiting response... 200 OK
+Length: 2342371 (2.2M) [image/jpeg]
+Saving to: ‘download?ixid=MnwxMjA3fDB8MXxhbGx8M3x8fHx8fDJ8fDE2NDg1NDYyNDg’
+
+                           download?ixid=MnwxMjA3fDB8   0%[                                                                                                                         ]       0  --.-KB/s               download?ixid=MnwxMjA3fDB8MXxhbGx8M3x8fHx8fDJ8fDE2NDg 100%[========================================================================================================================>]   2.23M  --.-KB/s    in 0.02s   
+
+2022-03-29 09:50:38 (109 MB/s) - ‘download?ixid=MnwxMjA3fDB8MXxhbGx8M3x8fHx8fDJ8fDE2NDg1NDYyNDg’ saved [2342371/2342371]
+
