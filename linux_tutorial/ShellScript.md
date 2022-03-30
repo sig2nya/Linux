@@ -7,3 +7,7 @@
 <img width="482" alt="스크린샷 2022-03-30 13 43 29" src="https://user-images.githubusercontent.com/70207093/160752957-e1ac324d-dcc3-45cd-9b27-ae8c7f24f2a9.png">
 
 * backup file이 초록색으로 바뀌었다.
+
+<img width="482" alt="스크린샷 2022-03-30 13 47 19" src="https://user-images.githubusercontent.com/70207093/160753377-61603195-896d-4cd0-8be0-2571a19781e2.png">
+
+* 다시 실행해보니 잘 된다.
