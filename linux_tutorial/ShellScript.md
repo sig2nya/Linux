@@ -5,4 +5,5 @@
 
 * chmod를 이용하여 실행 권한 부여
 <img width="482" alt="스크린샷 2022-03-30 13 43 29" src="https://user-images.githubusercontent.com/70207093/160752957-e1ac324d-dcc3-45cd-9b27-ae8c7f24f2a9.png">
+
 * backup file이 초록색으로 바뀌었다.
