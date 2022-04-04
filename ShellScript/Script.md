@@ -1,4 +1,4 @@
-```console
+```js
 arr_test_string=(1 2 3 4 5)
 arr_test_string+=(6)
 arr_test_string+=(7 8)
