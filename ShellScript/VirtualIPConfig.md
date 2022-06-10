@@ -3,7 +3,7 @@
 VIP="192.168.0.100" # Virtual IP
 DEV="enp0s3" # Network Interface
 
-healthcheck(){
+healthcheck(){ #
   ping -c 1 -w 1 $VIP > /dev/null
   return $?
 }
