@@ -9,7 +9,7 @@ healthcheck(){ # Virtual IP Check
 }
 
 ip_pingchack(){
-  ping -c 1 -w 1 192.168.0.8 > /dev/null
+  ping -c 1 -w 1 {Master System IP} > /dev/null
   return $?
 }
 
