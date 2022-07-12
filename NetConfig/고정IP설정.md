@@ -8,7 +8,7 @@
 2) Network Interface에 대한 정보 확인</br>
    <img width="304" alt="image" src="https://user-images.githubusercontent.com/70207093/178420655-1bf54ad0-7d4c-431b-9097-97574c30c94e.png">
 * * TYPE : 장치 타입
-* * BOOTPROTO : IP 할당 타입(none / static / dhcp)
+* * BOOTPROTO : IP 할당 타입(none / static / dhcp) -> 고정으로 IP 할당시에는 당연히 static으로 
 * * IPV4_FAILURE_FATAL : IP 할당 실패시 네트워크 종료 여부(yes / no)
 * * IPV6INIT : IPV6 사용 여부
 * * NAME : Network 장치 이름
