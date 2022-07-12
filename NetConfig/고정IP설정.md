@@ -15,3 +15,6 @@
 * * ONBOOT : 부팅시 자동 활성 여부
 * * GATEWAY : 게이트웨이
 * * DNS1 : DNS 주소
+
+3) Network Configure 수정 이후 "service network restart"를 통하여 네트워크 설정 재부팅
+   <img width="520" alt="image" src="https://user-images.githubusercontent.com/70207093/178421695-73c97aed-95fe-4c11-969a-a5a62a78a47d.png"> 
