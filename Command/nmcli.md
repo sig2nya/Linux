@@ -1,6 +1,7 @@
 nmcli
 =====
-* 개요 : network manager cli의 약어. Network Manager를 제어하거나 network 상태를 볼 수 있는 명령어</br>
+* 개요 : network manager cli의 약어. Network Manager를 제어하거나 network 상태를 볼 수 있는 명령어. Network Manager는 /etc/Network Manager 경로에 있다.</br>
+  ![image](https://user-images.githubusercontent.com/70207093/180397127-950f378e-186e-4f8d-8bed-243491d696b7.png)
   <img width="628" alt="image" src="https://user-images.githubusercontent.com/70207093/180382413-fbbf601c-00e5-491b-95cc-40fe9a292092.png">
 * 사용법
 * * nmcli [OPTIONS] OBJECT {COMMAND}
