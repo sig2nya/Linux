@@ -12,4 +12,13 @@ top
 * 6) f : sort field 선택 화면 -> q 누르면 RES 순으로 정렬
 * 7) a : 메모리 사용량에 따라 정렬
 * 8) b : batch 모드로 작동
+* * \> top 명령어 수행
 
+top vs htop
+===========
+* 개요 : top과 htop은 인터페이스도 비슷하다. 무슨 차이가 있는지 알아보자.
+* \> top
+  ![image](https://user-images.githubusercontent.com/70207093/181177927-0df21a4e-784e-4495-a701-5dcac4539ad9.png)
+
+* \> htop
+  ![image](https://user-images.githubusercontent.com/70207093/181178195-018ce5cc-d90b-4689-a3ea-51877ed3d889.png)
