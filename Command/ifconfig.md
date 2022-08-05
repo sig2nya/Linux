@@ -10,6 +10,7 @@ ifconfig
 /etc/sysconfig/network-scripts/ifcfg-eth[N]
 ===========================================
 * 개요 : 네트워크 인터페이스마다 환경설정을 수행. 첫번째 이더넷 카드는 ifcfg-eth0, 두번째 이더넷 카드는 ifcfg-eth1 등으로 네이밍
+* 설정 변경 후, systemctl restart network 혹은 service network restart를 수행해주자.
 ```
 # 설정 대상이 되는 인터페이스
 DEVICE = eth0
