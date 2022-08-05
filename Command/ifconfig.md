@@ -5,4 +5,4 @@ ifconfig
 * NetMask / BroadCast 설정 포함 사용법 : ifconfig [Network Interface Name] [IP] netmask [Netmask Addr] broadcast [Broadcast Addr]
 * Prefix를 통한 설정 사용법 : ifconfig eth0 172.0.0.1/24 처럼 접두어를 통하여 NetMask도 설정 가능.
 * GateWay 설정 : route add default gw [IP]
-* * 설정한 값은 영구적이지 않으며, 네트워크 서비스를 재시작(리부팅 등)하면 설정 값은 지워진다.
+* * 설정한 값은 영구적이지 않으며, 네트워크 서비스를 재시작(리부팅 등)하면 설정 값은 지워진다. 즉, OS의 Network Configuration File의 설정을 수행해주는 것이 권장된다.
