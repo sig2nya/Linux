@@ -1,6 +1,6 @@
 nmtui
 =====
-* 개요 : Network Manager를 UI로 사용
+* 개요 : nmtui (Network Manager Text User Interface)는 Network Manager를 UI로 사용
 * nmtui 명령어를 입력하면 다음과 같은 UI 출력</br>
 ![image](https://user-images.githubusercontent.com/70207093/183537400-90c99f56-75c4-40cc-8460-661e65f70eec.png)
 * 네트워크 인터페이스 목록 확인</br>
