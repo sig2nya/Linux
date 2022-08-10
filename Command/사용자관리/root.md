@@ -6,27 +6,3 @@ root 관리
 * 시스템 계정 : 시스템의 필요에 의해 생성된 계정. vim, daemon, adm, game 등
 * root 계정 관리 : 다른 슈퍼유저의 존재 점검. PAM을 이용하여 root 계정으로의 직접 로그인을 막고, su 명령 사용 유도.
 * * PAM : PAM (Pluggable Authentication Module)이란 리눅스에서 사용하는 '인증 모듈'로써 애플리케이션에 대한 사용자 권한을 제어
-
-사용자 관리
-===========
-* 사용자 정보 : /etc/default/useradd에 존재
-* 사용자 계정 생성 : useradd [option] 사용자계정 이름
-* 옵션
-> -p : 비밀번호 지정 / --password</br>
-> -d : 홈 디렉터리 지정 / --home-dir</br>
-> -g : 그룹을 지정 / --group</br>
-> -G : 추가 그룹 지정 / --groups</br>
-> -c : 사용자 설명 설정 / --comment</br>
-> -s : 사용자 셸 지정 / --shell</br>
-> -D : /etc/default/useradd에 설정된 유저추가와 관련된 기본 사항들을 보여주며 -D 옵션과 같이 나머지 옵션들을 추가로 주면 그 옵션의 기본값을 바꿈</br>
-> -m : 홈 디렉터리 생성</br>
-> -k : 사용자 생성시에 제공되는 환경 파일들은 기본적으로 /etc/skel로 지정되어 있으며, 이외의 디렉터리 지정시에 사용</br>
-> -f : Password 만기 이후 며칠뒤에 계정이 영구적으로 불가능하게 할건지 설정</br>
-> -e : 계정 만기일. YYYY-MM-DD 형태 / --expiredate</br>
-> -u : UID 값 지정</br>
-* 사용자 암호 부여 : passwd 사용자계정 이름
-* 사용자 전환 : su [option] 사용자계정 이름
-* 옵션
-> -, -l : 해당 사용자에 실제 로그인한 것처럼 Shell을 이용 / --login</br>
-> -c : 명령 일시적 수행 / --command</br>
-
