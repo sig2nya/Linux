@@ -24,3 +24,9 @@ root 관리
 > -f : Password 만기 이후 며칠뒤에 계정이 영구적으로 불가능하게 할건지 설정</br>
 > -e : 계정 만기일. YYYY-MM-DD 형태 / --expiredate</br>
 > -u : UID 값 지정</br>
+* 사용자 암호 부여 : passwd 사용자계정 이름
+* 사용자 전환 : su [option] 사용자계정 이름
+* 옵션
+> -, -l : 해당 사용자에 실제 로그인한 것처럼 Shell을 이용 / --login</br>
+> -c : 명령 일시적 수행 / --command</br>
+
