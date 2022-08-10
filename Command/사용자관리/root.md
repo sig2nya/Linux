@@ -9,18 +9,18 @@ root 관리
 
 사용자 관리
 ===========
-* 사용자 정보 : /etc/default/useradd에 
+* 사용자 정보 : /etc/default/useradd에 존재
 * 사용자 계정 생성 : useradd [option] 사용자계정 이름
 * 옵션
-> -p : 비밀번호 지정 / --password
-> -d : 홈 디렉터리 지정 / --home-dir
-> -g : 그룹을 지정 / --group
-> -G : 추가 그룹 지정 / --groups
-> -c : 사용자 설명 설정 / --comment
-> -s : 사용자 셸 지정 / --shell
-> -D : /etc/default/useradd에 설정된 유저추가와 관련된 기본 사항들을 보여주며 -D 옵션과 같이 나머지 옵션들을 추가로 주면 그 옵션의 기본값을 바꿈
-> -m : 홈 디렉터리 생성
-> -k : 사용자 생성시에 제공되는 환경 파일들은 기본적으로 /etc/skel로 지정되어 있으며, 이외의 디렉터리 지정시에 사용
-> -f : Password 만기 이후 며칠뒤에 계정이 영구적으로 불가능하게 할건지 설정
-> -e : 계정 만기일. YYYY-MM-DD 형태 / --expiredate
-> -u : UID 값 지정
+> -p : 비밀번호 지정 / --password</br>
+> -d : 홈 디렉터리 지정 / --home-dir</br>
+> -g : 그룹을 지정 / --group</br>
+> -G : 추가 그룹 지정 / --groups</br>
+> -c : 사용자 설명 설정 / --comment</br>
+> -s : 사용자 셸 지정 / --shell</br>
+> -D : /etc/default/useradd에 설정된 유저추가와 관련된 기본 사항들을 보여주며 -D 옵션과 같이 나머지 옵션들을 추가로 주면 그 옵션의 기본값을 바꿈</br>
+> -m : 홈 디렉터리 생성</br>
+> -k : 사용자 생성시에 제공되는 환경 파일들은 기본적으로 /etc/skel로 지정되어 있으며, 이외의 디렉터리 지정시에 사용</br>
+> -f : Password 만기 이후 며칠뒤에 계정이 영구적으로 불가능하게 할건지 설정</br>
+> -e : 계정 만기일. YYYY-MM-DD 형태 / --expiredate</br>
+> -u : UID 값 지정</br>
