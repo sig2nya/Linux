@@ -1,5 +1,6 @@
 cron
 ====
+![image](https://user-images.githubusercontent.com/70207093/184791836-1de09862-69ea-47f4-a24a-cbcb97c4795f.png)
 * 개요 : 주기적으로 반복되는 일을 자동적으로 실행, 관련 데몬은 'crond'이며 파일은 /etc/crontab에 존재
 * 사용법
 ```
@@ -7,6 +8,8 @@ cron
 - 분 시 일 월 요일 사용자 실행명령
 ex) 00 05 1 * * root cp -r /home /backup
 ```
+![image](https://user-images.githubusercontent.com/70207093/184791899-778ea8c0-0a15-4492-ba9d-625512a38179.png)
+
 
 at
 ==
@@ -14,7 +17,7 @@ at
 * 사용법
 ```
 - 예약 : # at <시간>
-ex) at 3:00am tomorrow / at now + 1 hours
+  ex) at 3:00am tomorrow / at now + 1 hours
 - at> 프롬프트에 예약 명령어 입력 후 [Enter]
 - 완료되면 [Ctrl] + [D]
 - 확인 : # at-l
