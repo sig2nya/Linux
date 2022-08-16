@@ -6,7 +6,7 @@ apt
 ===
 * 개요 : 'dpkg' 명령어의 패키지 의존성 문제를 해결, 인터넷을 통하여 필요한 파일을 Repository에서 자동으로 다운로드 및 설치, apt는 apt install 명령 요청을 받으면 /etc/apt/sources.list파일을 먼저 확인</br>
   ![image](https://user-images.githubusercontent.com/70207093/184782227-67998f18-36c9-484a-b8f2-cf863323a6f4.png)
-* mirror.kakao.com/ubuntu
+* mirror.kakao.com/ubuntu : mirror 사이트는 전 세계에 존재하며, 리눅스 패키지에 대한 리포지토리
   ![image](https://user-images.githubusercontent.com/70207093/184782414-11cf377d-6648-457d-b8e5-c4fd8127b5e8.png)
 * 사용법
 ```
