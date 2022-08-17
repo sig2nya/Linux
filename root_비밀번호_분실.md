@@ -11,3 +11,22 @@ root 비밀번호를 분실하였을 때
 5. \> mount -o remount,rw / 명령 수행 및 passwd로 비밀번호 변경</br>
    ![image](https://user-images.githubusercontent.com/70207093/185096477-4007a9ee-559b-4670-9e5b-7a34e0a82ec2.png)
 6. reboot 수행
+
+GRUB 보안 설정
+==============
+* 개요 : 위의 실습에서 GRUB에 접근 가능하다면 누구나 root의 계정을 변조시킬 것으로 예상된다. 이를 예방하기 위해, BIOS / GRUB 등 주요 시스템 애플리케이션에 대한 보안 설정이 가능하다.
+* /etc/default/grub 을 vi 편집기로 열어보자.
+```
+ > vi /etc/grub.d/00_header
+ 마지막 4줄에 다음과 같이 스크립트 추가
+ cat << EOF
+ set superusers="grubuser" // superusers 항목은 id의 개념
+ password grubuser 1234 // grubuser id에 대한 pasword 설정
+ EOF
+ 스크립트 작성 이후, update-grub을 통해 변경 사항을 적용
+```
+   ![image](https://user-images.githubusercontent.com/70207093/185098863-fbc637c2-954b-45f2-a553-5e1b555534dc.png)
+* vi 편집기로 00_header 파일을 수정하였다면, reboot 및 GRUB에 접속해보자. 다음과 같이, username과 password가 필요하다.
+  ![image](https://user-images.githubusercontent.com/70207093/185099362-fe12dc81-2249-426f-8b63-3e32ac50d089.png)
+* username 및 password로 접속 후 GRUB에 접근 가능
+  ![image](https://user-images.githubusercontent.com/70207093/185099529-b94aa92e-b272-4f3c-92e9-1a50b696db91.png)
