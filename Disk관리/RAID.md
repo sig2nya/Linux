@@ -54,6 +54,13 @@ Linear RAID 구성
 * RAID 사용을 위한 작업
 > \> mkfs.ext4 /dev/md9
   ![image](https://user-images.githubusercontent.com/70207093/186329172-f5cdd755-6d87-4c42-8191-fd9f7f33c0d2.png)
+  </br>
 > \> mkdir /raidLinear; \> mount /dev/md9  /raidLinear; \> df
+> 
 * 해당 마운트 포인트에, md9 RAID가 설정이 된 것을 확인 
+
   ![image](https://user-images.githubusercontent.com/70207093/186329321-ecdbd3c7-525b-4781-af4d-d026b2e6d31a.png)
+
+> \> mdadm --detail /dev/md9
+* RAID 구성의 detail 확인
+  ![image](https://user-images.githubusercontent.com/70207093/186329523-4cd9bdf5-7146-4b4f-b545-1fdd1c2f3b65.png)
