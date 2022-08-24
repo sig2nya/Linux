@@ -48,3 +48,6 @@ Linear RAID 구성
 > RAID 구성 명령어 : \> mdadm --create /dev/md9 --level=linear --raid-devices=2 /dev/sdb1 /dev/sdc1
 * 성공하면, 아래와 같이 출력.
   ![image](https://user-images.githubusercontent.com/70207093/186328586-b5199a8b-ed2e-45bc-9115-68c7062934bc.png)
+> RAID 구성 확인 : \> mdadm --detail --scan
+* md9라는 이름으로 RAID가 구성된 것을 확인
+  ![image](https://user-images.githubusercontent.com/70207093/186328938-52fe8ad0-8d5a-4cd0-b2d1-6c81066b8642.png)
