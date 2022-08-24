@@ -32,3 +32,11 @@
    ![image](https://user-images.githubusercontent.com/70207093/186301955-b33d67e3-a76f-4d63-a22d-fe27acf116b0.png)
  - 다 되었으면, w로 적용시키자. 나머지 disk에 대해서도 fdisk 명령을 통하여 위와 같은 과정을 수행해주자. 이제 본격적으로 RAID 실습을 진행해보자.
 
+2. Linear RAID
+* 개요 : Linear RAID를 구현. sdb / sdc 디스크 사용
+* 선행작업 : mdadm 필요 -> RAID 구성에 필요한 명령어
+* 다음과 같이 mdadm not found가 출력되면, install 수행</br>
+  ![image](https://user-images.githubusercontent.com/70207093/186327949-f8b50f43-8fc3-469a-8887-dac0894ab601.png)
+> RAID 구성 명령어 : \> mdadm --create /dev/md9 --level=linear --raid-devices=2 /dev/sdb1 /dev/sdc1
+* 성공하면, 아래와 같이 출력.
+  ![image](https://user-images.githubusercontent.com/70207093/186328586-b5199a8b-ed2e-45bc-9115-68c7062934bc.png)
