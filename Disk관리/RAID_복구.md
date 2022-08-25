@@ -21,7 +21,7 @@ RAID 장애 발생
 RAID 장애 복구
 ==============
 * 개요 : RAID0과 RAID1은 장애를 허용하기 때문에 강제로 실행시킬 수 있다.
-1. \> mdadm --run /dev/md1 명령어 수행을 통해 먼저 md1에 대한 RAID를 복구시킨다. 다음과 같이, Inactive 상태에서 Active 상태로 바뀐 것을 확인 가능하다. 
+1. \> mdadm --run /dev/md1 명령어 수행을 통해 먼저 md1에 대한 RAID를 복구시킨다. 다음과 같이, Inactive 상태에서 Active 상태로 바뀐 것을 확인 가능하다. </br>
    ![image](https://user-images.githubusercontent.com/70207093/186554562-357207de-50e0-49b4-abca-cc1ada9820cc.png)
 2. \> df 명령어를 통해 다음과 같이 md1이 살아난 것을 확인 가능하다.
    ![image](https://user-images.githubusercontent.com/70207093/186554675-2194015a-8e40-4fc1-b9ef-2cf5e3e0d0c7.png)
