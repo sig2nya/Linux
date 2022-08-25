@@ -1,7 +1,7 @@
 RAID 장애 발생
 ==============
 * 개요 : 고의로 RAID 1, 5에서 장애 발생 후에 복구를 시킴. 이번 실습에서는 해당 디스크의 케이블을 강제로 제거하여 장애를 발생.
-1. Virtualbox 설정에서 SCSI 2번과 5번(RAID 0, 1)에 해당하는 Disk를 강제로 제거한다.
+1. Virtualbox 설정에서 SCSI 2번과 5번(RAID 1, 5)에 해당하는 Disk를 강제로 제거한다.
 * 제거 전
   ![image](https://user-images.githubusercontent.com/70207093/186553197-0d854d1a-cafe-46f5-8419-f847f729f717.png)
 * 제거 후
@@ -20,7 +20,7 @@ RAID 장애 발생
 
 RAID 장애 복구
 ==============
-* 개요 : RAID0과 RAID1은 장애를 허용하기 때문에 강제로 실행시킬 수 있다.
+* 개요 : RAID1과 RAID5은 장애를 허용하기 때문에 강제로 실행시킬 수 있다.
 1. \> mdadm --run /dev/md1 명령어 수행을 통해 먼저 md1에 대한 RAID를 복구시킨다. 다음과 같이, Inactive 상태에서 Active 상태로 바뀐 것을 확인 가능하다. </br>
    ![image](https://user-images.githubusercontent.com/70207093/186554562-357207de-50e0-49b4-abca-cc1ada9820cc.png)
 2. \> df 명령어를 통해 다음과 같이 md1이 살아난 것을 확인 가능하다.
