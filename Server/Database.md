@@ -11,7 +11,7 @@ Database Server 구축
  \> mysqladmin -u root password '1234'; systemctl restart mariadb
  ![image](https://user-images.githubusercontent.com/70207093/186569137-dd73937c-c798-475c-a4be-d9905db34610.png)
 5. Client 접속
- \> mysql -u root -p
+ \> mysql -u root -p</br>
  ![image](https://user-images.githubusercontent.com/70207093/186569217-51eff7c6-e103-4fc6-b47b-1ec6214c90ad.png)
 6. Mariadb는 외부에서 접속 비허용이 기본값이다. 따라서, 다음의 configuration이 필요하다.
  \> vim /etc/mysql/mariadb.conf.d/50-server.cnf
