@@ -26,3 +26,5 @@ Linear RAID 구성
 
 * RAID 구성의 적용을 위해, /etc/fstab을 다음과 같이 수정.
   ![image](https://user-images.githubusercontent.com/70207093/186548260-04ca6c02-fae9-49b7-821c-0dd1af50c6d7.png)
+
+* 주의사항 : 마운트가 잘못되거나, 명령 수행이 제대로 이루어지지 않았다면 reboot시에 부팅이 안되는 경우가 발생할 수 있다. 주의해야한다.
