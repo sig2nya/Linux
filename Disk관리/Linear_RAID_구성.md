@@ -23,3 +23,6 @@ Linear RAID 구성
 > \> mdadm --detail /dev/md9
 * RAID 구성의 detail 확인</br>
   ![image](https://user-images.githubusercontent.com/70207093/186329523-4cd9bdf5-7146-4b4f-b545-1fdd1c2f3b65.png)
+
+* RAID 구성의 적용을 위해, /etc/fstab을 다음과 같이 수정.
+  ![image](https://user-images.githubusercontent.com/70207093/186548260-04ca6c02-fae9-49b7-821c-0dd1af50c6d7.png)
