@@ -45,17 +45,17 @@ suffix 'e' : 새로운 환경 변수 설정
 5. pid_t wait(int *wstatus);
  - arguments : wstatus -> child process의 종료 상태
 ```c
-WIFEXITED(wstatus)
-WEXITSTATUS(wstatus)
+WIFEXITED(wstatus);
+WEXITSTATUS(wstatus);
 
-WIFSIGNALED(wstatus)
-WTERMSIG(wstatus)
+WIFSIGNALED(wstatus);
+WTERMSIG(wstatus);
 
-WCOREDUMP(wstatus)
+WCOREDUMP(wstatus);
 
-WIFSTOPPED(wstatus)
-WSTOPSIG(wstatus)
-WIFCONTINUED(wstatus)
+WIFSTOPPED(wstatus);
+WSTOPSIG(wstatus);
+WIFCONTINUED(wstatus);
 ```
 
 6. pid_t waitpid(pid_t pid, int *status, int optiones) / pid_t wait4(pid_t pid, int *status, int options, struct rusage *rusage)
