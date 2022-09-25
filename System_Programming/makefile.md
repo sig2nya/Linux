@@ -34,7 +34,8 @@
  - OBJS : 중간 산출물 Object 파일 목록
  - TARGET : 빌드 대상 이름
 
-makefile 예시
+5.makefile 예시
+===============
 ```c
 CC = gcc // Macro
 
