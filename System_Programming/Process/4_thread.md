@@ -1,4 +1,5 @@
-1. Thread
+1.Thread
+========
  - 쓰레드의 생성 및 종료
 ```c
 int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);
