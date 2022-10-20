@@ -45,7 +45,7 @@ int a = 0; // thread 공유 자원
 void *testfunction(void){
     while(a < 20){
         printf("a value : %d\n", a);
-        pthread_mutex_lock(&mutex);
+        pthread_mutex_lock(&mutex); // critical area access
         a++;
         pthread_mutex_unlock(&mutex);
         sleep(1);
