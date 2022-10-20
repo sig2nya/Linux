@@ -1,3 +1,6 @@
+mutex 미처리
+============
+![image](https://user-images.githubusercontent.com/70207093/196887742-52da668b-8c3b-4764-9311-7d6f164c52df.png)
 ```c
 #include<pthread.h>
 #include<stdio.h>
@@ -28,10 +31,9 @@ int main(){
 }
 ```
 
-mutex 미처리
-============
-![image](https://user-images.githubusercontent.com/70207093/196887742-52da668b-8c3b-4764-9311-7d6f164c52df.png)
-
+mutex 처리
+==========
+![image](https://user-images.githubusercontent.com/70207093/196888516-12d862ca-7ac4-42a9-a7ba-5c265056bbbb.png)
 ```c
 #include<pthread.h>
 #include<stdio.h>
@@ -63,7 +65,3 @@ int main(){
     return;
 }
 ```
-
-mutex 처리
-==========
-![image](https://user-images.githubusercontent.com/70207093/196888516-12d862ca-7ac4-42a9-a7ba-5c265056bbbb.png)
