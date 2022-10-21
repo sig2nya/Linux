@@ -50,3 +50,19 @@ int main(void){
         exit(0);
 }
 ```
+
+4.thread 종료
+=============
+ - 프로세스 종료를 야기시키지 않고 thread가 종료되는 경우는 다음의 경우이다
+ - - thread 시동 routine이 정상적으로 반환.
+ - - 같은 프로세스의 다른 thread의 취소 요청에 의해 thread가 취소
+ - - thread가 pthread_exit 호출
+
+```c
+#include<pthread.h>
+void pthread_exit(void *rval_ptr);
+int pthread_join(pthread_t thread, void **rval_ptr);
+```
+```c
+
+```
