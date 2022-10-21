@@ -1,0 +1,43 @@
+Linux Signal
+============
+ - SIGABRT : 비정상 종료
+ - SIGALRM : 타이머 만료
+ - SIGBUS : 하드웨어 고장
+ - SIGCANCEL : 스레드 라이브러리 내부용
+ - SIGCHLD : 자식의 상태 변화
+ - SIGCONT : 중단 프로세스의 실행 재개
+ - SIGEMT : 하드웨어 고장
+ - SIGFPE : 산술 예외
+ - SIGFREEZE : 체크포인트 동결
+ - SIGHUP : 연결 끊어짐
+ - SIGILL : 적법하지 않은 명령
+ - SIGINFO : 키보드로부터의 상태 요청
+ - SIGINT : 터미널 가로채기 문자
+ - SIGIO : 비동기 I/O
+ - SIGIOT : 하드웨어 고장
+ - SIGKILL : 종료
+ - SIGLWP : 스레드 라이브러리 내부용
+ - SIGPIPE : 판독자가 없는 파이프에 쓰기
+ - SIGPOLL : 폴링 가능 사건
+ - SIGPROF : 프로파일링 시간 경보
+ - SIGPWR : 전원 고장
+ - SIGQUIT : 터미널 중지 문자
+ - SIGSEGV : 유효하지 않은 메모리 참조
+ - SIGSTKFLT : 보조프로세서 스택 실패
+ - SIGSTOP : 중단
+ - SIGSYS : 유효하지 않은 시스템 호출
+ - SIGTERM : 종료
+ - SIGTHAW : 체크포인트 해동
+ - SIGTRAP : 하드웨어 고장
+ - SIGTSTP : 터미널 중단 문자
+ - SIGTTIN : 배경 작업이 제어 터미널을 읽음
+ - SIGTTOU : 배경 작업이 제어 터미널을 씀
+ - SIGURG : 긴급 조건(소켓)
+ - SIGUSR1 : 사용자 정의 신호
+ - SIGUSR2 : 사용자 정의 신호
+ - SIGVTALRM : 가상 시간 경보
+ - SIGWAITING : 스레드 라이브러리 내부용
+ - SIGWINCH : 터미널 창 크기 변경
+ - SIGXCPU : CPU 한계 초과
+ - SIGXFSZ : 파일 크기 한계 초과
+ - SIGXRES : 자원 제어 
