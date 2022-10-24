@@ -1,5 +1,6 @@
 Linux Signal
 ============
+   ![image](https://user-images.githubusercontent.com/70207093/197425785-ed6cad18-86f6-4822-a97c-6d900907c8e9.png)
  - SIGABRT : 비정상 종료 - abort() 함수의 호출에 의해 발생
  - SIGALRM : 타이머 만료 - alarm 함수로 설정한 타이머가 만료될 때 발생 or setitimer 함수로 설정한 구간 타이머가 만료될 때 발생
  - SIGBUS : 하드웨어 고장 - 구현이 정의하는 HW 고장에 해당하는 신호 / 보통의 경우, 구현들은 특정 종류의 메모리 고장에 대해 이 신호를 발생
