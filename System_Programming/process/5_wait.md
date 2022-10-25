@@ -3,7 +3,7 @@ wait
  - 정의 : 자식 프로세스의 종료를 기다린다.
 
 ```c
-#inlcude<sys/types.h>
+#include<sys/types.h>
 #include<sys/wait.h>
 pid_t wait(int *status);
 ```
