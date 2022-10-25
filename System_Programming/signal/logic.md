@@ -2,7 +2,7 @@
 ========
  - 비동기 이벤트를 처리하기 위한 메커니즘
  - SW Interrupt
- - ex) Ctrl + C / Child Process Termination / Alarm / Devied by 0 / Inter-Process Communication
+ - ex) Ctrl + C / Child Process Termination / Alarm / Devied by 0 / Inter-Process Communication(IPC)
  - Signal Number + 추가적인 정보 + 사용자 정의 데이터 등을 담음
 
 2.Signal의 처리
