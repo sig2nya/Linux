@@ -19,7 +19,9 @@ int pthread_create(pthread_t *restrict tidp, const pthread_attr_t *restrict attr
 
 3.thread 생성
 =============
- * 특성 : thread 생성시, 새 thread와 그것을 생성한 thread 중 어느 것이 먼저 실행되는지 알 수 없다. 새로 생성된 thread는 process 주소 공간에 접근 가능하다.
+ * 특성 : thread 생성시, 새 thread와 그것을 생성한 thread 중 어느 것이 먼저 실행되는지 알 수 없다. 새로 생성된 thread는 process 주소 공간에 접근 가능하다.</br>
+   ![image](https://user-images.githubusercontent.com/70207093/198217481-1b0311f2-5803-4952-a756-a47710933b59.png)
+
 ```c
 #include "apue.h"
 #include<pthread.h>
