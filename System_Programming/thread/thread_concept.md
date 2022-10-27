@@ -6,6 +6,7 @@
 
 2.thread 식별
 =============
+![image](https://user-images.githubusercontent.com/70207093/198228515-19eb8d53-e0d7-411e-8e32-c37559d7fe4a.png)
 ```c
 #include<pthread.h>
 int pthread_equal(pthread_t tid1, pthread_t tid2);
@@ -58,13 +59,11 @@ int main(void){
  - 프로세스 종료를 야기시키지 않고 thread가 종료되는 경우는 다음의 경우이다
  - - thread 시동 routine이 정상적으로 반환.
  - - 같은 프로세스의 다른 thread의 취소 요청에 의해 thread가 취소
- - - thread가 pthread_exit 호출
+ - - thread가 pthread_exit 호출</br>
+ ![image](https://user-images.githubusercontent.com/70207093/198228375-ec1b5194-69f5-4ef3-a5de-01c2e6e95dc5.png)
 
 ```c
 #include<pthread.h>
 void pthread_exit(void *rval_ptr);
 int pthread_join(pthread_t thread, void **rval_ptr);
-```
-```c
-
 ```
