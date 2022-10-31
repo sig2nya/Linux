@@ -9,4 +9,4 @@ int socket(int domain, int type, int protocol);
 // protocol : 사용 프로토콜. 보통 0으로 지정
 // return value : uint - success(socket descriptor) / -1 - fail
 ```
-
+![image](https://user-images.githubusercontent.com/70207093/198966200-da3693f0-49cf-4c84-83fd-277048715d47.png)
