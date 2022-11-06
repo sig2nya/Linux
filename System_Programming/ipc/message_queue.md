@@ -3,7 +3,7 @@ Message Queue
 ```c
 #include<sys/types.h>
 #include<sys/ipc.h>
-#include<Sys/msg.h>
+#include<ys/msg.h>
 int msgget(key_t key, int msgflg);
  - key : msg queue 번호
  - msgflg : IPC_CREAT - key에 해당하는 msg queue가 없으면 생성 / IPC_EXCL - msg queue가 이미 존재하면 실패
