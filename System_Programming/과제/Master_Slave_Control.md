@@ -5,28 +5,231 @@
 2. Master Process는 최초기동 된다. 최초기동 시, PROCESS.txt 파일을 읽어들인다. 또한, Master Process는 해당 List를 읽어들여 Slave Process를 기동시킨다.
    - 단, Slave 기동 시, 프로세스 명을 인자로 넘겨준다. 각 Slave Process는 자신의 Process 명을 알아야 한다.
 ```c
-void read_process(){
-        char buf[30];
-        char *slaves[2];
-        FILE *fp = fopen("./PROCESS.txt", "r");
-        if(fp == NULL){
-                printf("PROCESS.txt file read error\n");
+#include<stdio.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<string.h>
+#include<signal.h>
+#include<sys/ipc.h>
+#include<sys/msg.h>
+#include<time.h>
+#include<sys/wait.h>
+#include<sys/types.h>
+
+typedef struct{
+        char name[50];
+        char path[50];
+        pid_t s_pid;
+        int status;
+        int live;
+        int active;
+} slave_info;
+
+typedef struct{
+        long msgtype;
+        int ipcmsg_t;
+        int pno;
+} ipcMsg;
+
+typedef enum{
+        ACTIVE = 1,
+        DEACTIVE,
+        ACTIVE_ALL,
+        DEACTIVE_ALL,
+        STOP_ALL
+} ipcMsgType;
+
+int ssize = 0;
+slave_info *s_info = NULL;
+
+void get_time(void);
+
+void get_ipcmsg(void);
+
+void chld_handler(int signo){
+        int status;
+        int i = 0;
+        pid_t child;
+
+        child = waitpid(-1, &status, WNOHANG);
+        WIFEXITED(status);
+
+        for(i = 0; i < ssize; i++){
+                if(s_info[i].s_pid == child) {
+                        printf("Catch Signal Child Process Down (%s)\n", s_info[i].name);
+                        s_info[i].status = 0;
+                        s_info[i].s_pid = 0;
+
+                        if(s_info[i].status == 0 && s_info[i].active == 1){
+                                printf("Invoke Process (%s)\n", s_info[i].name);
+                                if((child = fork()) > 0){
+                                        s_info[i].s_pid = child;
+                                if((child = fork()) > 0){
+                                        s_info[i].s_pid = child;
+                                        s_info[i].status = 1;
+                                } else {
+                                        execlp(s_info[i].path, s_info[i].name, NULL);
+                                        exit(0);
+                                }
+                        }
+                    break;
+                }
+        }
+}
+
+void main()
+{
+        FILE *fp = NULL;
+        int i = 0;
+        char buf[1024] = { 0, };
+        char *name = NULL, *path = NULL;
+        pid_t pid;
+        int status;
+
+        time_t timer;
+        struct tm *t;
+
+        memset(buf, 0, sizeof(buf));
+
+        if((fp = fopen("./PROCESS.txt", "r")) == NULL){
+                printf("fopen failed\n");
                 return;
-        }   
-        int i;
-        for(i = 0; i < 2; i++){
-                // read line in file
-                char *str = fgets(buf, MAX_LIST_LEN, fp);
-                // line parsing
-                char *result = strtok(str, " ");
-                slaves[0] = result;
-                result = strtok(NULL, " ");
-                slaves[1] = result;
-                printf("[%d] parsing result : %s %s", i, slaves[0], slaves[1]);
-                fseek(fp, ftell(fp), SEEK_SET);
-        }   
-        close(fp);
+        }
+
+        signal(SIGCHLD, chld_handler);
+
+        s_info = (slave_info *) calloc(ssize + 1, sizeof(slave_info) * 2);
+
+        while((fgets(buf, sizeof(buf), fp)) != NULL){ // whole file read
+                s_info = (slave_info *)realloc(s_info, sizeof(slave_info) * (ssize + 1));
+                name = strtok(buf, " "); path = strtok(NULL, " "); // column token 분리 
+                path[strlen(path) - 1] = 0; // 개행 제거 
+
+                if((pid = fork()) > 0){
+                        s_info[i].s_pid = pid;
+                        strncpy(s_info[i].name, name, sizeof(s_info[i].name));
+                        strncpy(s_info[i].path, path, sizeof(s_info[i].path));
+                        s_info[i].status = 1;
+                        s_info[i].active = 1;
+                }
+                else if (pid == 0) {
+                        execlp(path, name, NULL);
+                        //free(s_info);
+                        exit(0);
+                }
+                i++;
+                ssize++;
+        }
+
+        fclose(fp);
+
+                              while(1){
+                get_time();
+
+                printf("프로세스    PID     상태    활성여부\n");
+                for(i = 0; i < ssize; i++){
+                        printf("%5s     %5d     %5s     %5s\n",
+                                s_info[i].name,
+                                s_info[i].s_pid,
+                                s_info[i].status == 1 ? "LIVE" : "DOWN" ,
+                                s_info[i].active == 1 ? "ACTIVE" : "DEACTIVE"
+                        );
+                }
+
+                get_ipcmsg();
+
+                sleep(5);
+        }
+
+        free(s_info);
         return;
 }
 
+void get_time(){
+        time_t timer;
+        struct tm *t;
+        char buffer[1024];
+        timer = time(NULL);
+        t = localtime(&timer);
+        snprintf(buffer, 15,  "%.4d%.2d%.2d%.2d%.2d%.2d",
+                 t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+        printf("[%s]\n", buffer);
+}
+
+void get_ipcmsg(){
+        int msqid;
+        int i;
+        ipcMsg ipcmsg;
+        ipcMsgType ipc;
+        pid_t child;
+
+        if((msqid = msgget((key_t) 123, IPC_EXCL | 0666)) == 1){
+                printf("msgget failed\n");
+        }
+
+        if(msgrcv(msqid, &ipcmsg, sizeof(ipcMsg) - sizeof(long), 1, IPC_NOWAIT) != -1){
+                printf("[%d] -> %d\n", ipc, ipcmsg.pno);
+                switch(ipcmsg.ipcmsg_t){
+                        case ACTIVE:{
+                                s_info[ipcmsg.pno].active = 1;
+                                for(i = 0; i < ssize; i++){
+                                        if(s_info[i].status == 0 && s_info[i].active == 1){
+                                                printf("Invoke Process (%s)\n", s_info[i].name);
+                                                if((child = fork()) > 0){
+                                                        s_info[i].s_pid = child;
+                                                        s_info[i].status = 1;
+                                                } else {
+                                                        execlp(s_info[ipcmsg.pno].path, s_info[ipcmsg.pno].name, NULL);
+                                                                                                        } else {
+                                                        execlp(s_info[ipcmsg.pno].path, s_info[ipcmsg.pno].name, NULL);
+                                                        exit(0);
+                                                }
+                                        }
+
+                                }
+                                break;
+                        }
+                        case DEACTIVE:{
+                                s_info[ipcmsg.pno].active = 0;
+                                kill(s_info[ipcmsg.pno].s_pid, SIGKILL);
+                                break;
+                        }
+                        case ACTIVE_ALL:{
+                                for(i = 0; i < ssize; i++){
+                                        s_info[i].active = 1;
+                                        printf("Invoke Process (%s)\n", s_info[i].name);
+                                        if((child = fork()) > 0){
+                                                s_info[i].s_pid = child;
+                                                s_info[i].status = 1;
+                                        } else {
+                                                execlp(s_info[i].path, s_info[i].name, NULL);
+                                                exit(0);
+                                        }
+                                }
+                                break;
+                        }
+                        case DEACTIVE_ALL:{
+                                for(i = 0; i < ssize; i++){
+                                        kill(s_info[i].s_pid, SIGKILL);
+                                        s_info[i].active = 0;
+                                        s_info[i].status = 0;
+                                        s_info[i].s_pid = 0;
+                                }
+                                break;
+                        }
+                        case STOP_ALL:{
+                                for(i = 0; i < ssize; i++){
+                                        kill(s_info[i].s_pid, SIGKILL);
+                                        printf("[%d] is down\n", s_info[i].s_pid);
+                                        s_info[i].s_pid = 0;
+                                        s_info[i].status = 0;
+                                        s_info[i].active = 0;
+                                }
+                                exit(0);
+                                break;
+                        }
+
+                }
+        }
+}
 ```
