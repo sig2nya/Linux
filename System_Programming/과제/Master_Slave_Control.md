@@ -233,7 +233,7 @@ void get_ipcmsg(){
         }
 }
 ```
-
+3. trigger.c
 ```c
 #include<stdio.h>
 #include<stdlib.h>
@@ -354,6 +354,8 @@ int main(int argc, char *argv[]){
         return 0;
 }
 ```
+
+4. slave.c
 ```c
 #include<stdio.h>
 #include<stdlib.h>
