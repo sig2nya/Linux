@@ -354,3 +354,88 @@ int main(int argc, char *argv[]){
         return 0;
 }
 ```
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<fcntl.h>
+#include<string.h>
+#include<sys/msg.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+char buffer[1024];
+
+void get_time(){
+        time_t timer;
+        struct tm *t; 
+        timer = time(NULL);
+        t = localtime(&timer);
+        snprintf(buffer, 15, "%.4d%.2d%.2d%.2d%.2d%.2d", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+}
+
+void append_file(char *name, int cnt){
+        FILE *fp = NULL;
+        char file_name[1024] = {0,};
+
+        sprintf(file_name, "%s.txt", name);
+
+        if((fp = fopen(file_name, "a+")) == NULL){
+                fprintf(fp, "file open error\n");
+                return;
+        }   
+        get_time();
+        fprintf(fp, "%s %s %d\n", buffer, name, cnt);
+        fflush(fp);
+        fclose(fp);
+}
+
+void main(int argc, char *argv[])
+{
+        int i = 0;
+        FILE *fp;
+        time_t timer;
+        struct tm *t; 
+        char p_name[124] = {0,};
+        char f_name[127] = {0,};
+        timer = time(NULL);
+        t = localtime(&timer);
+
+        if (argc != 1) {
+                strcpy(p_name, "SLAVE");
+        }   
+        else {
+                strcpy(p_name, argv[0]);
+        }   
+
+        sprintf(f_name, "%s.txt", p_name);
+
+        if((fp = fopen(f_name, "a+")) == NULL){
+                fprintf(fp, "file open error\n");
+                return;
+        }   
+                        return;
+        }
+
+        snprintf(buffer, 30, "==============================");
+        fprintf(fp, "%s\n", buffer);
+        fflush(fp);
+        snprintf(buffer, 40, "%.4d%.2d%.2d%.2d%.2d%.2d [%s] is alive!!!", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec, p_name);
+        fprintf(fp, "%s\n", buffer);
+        fflush(fp);
+
+        while(i < 6){
+                append_file(p_name, i + 1);
+                i++;
+                sleep(5);
+        }
+
+        snprintf(buffer, 30, "%s is terminate", p_name);
+        fprintf(fp, "%s\n", buffer);
+        snprintf(buffer, 30, "==============================");
+        fprintf(fp, "%s\n", buffer);
+        fflush(fp);
+        fclose(fp);
+        exit(0);
+}
+```
