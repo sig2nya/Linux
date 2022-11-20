@@ -233,3 +233,124 @@ void get_ipcmsg(){
         }
 }
 ```
+
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<sys/types.h>
+#include<sys/ipc.h>
+#include<sys/msg.h>
+
+typedef struct{
+        long msgtype;
+        int ipcmsg_t;
+        int pno;
+} ipcMsg;
+
+typedef enum{
+        //IPC = 1,
+        ACTIVE = 1,
+        DEACTIVE,
+        ACTIVE_ALL,
+        DEACTIVE_ALL,
+        STOP_ALL
+} ipcMsgType;
+
+int main(int argc, char *argv[]){
+        if(argc > 3){ 
+                printf("usage : ./TRIGGER <number> or ./TRIGGER <number> <processname>. processname must be same with exec file\n");
+                exit(0);
+        } else if(argc == 1){ 
+                printf("usage : ./TRIGGER <number> or ./TRIGGER <number> <processname>. processname must be same with exec file\n");
+                exit(0);
+        }   
+
+        if(atoi(argv[1]) > 5){ 
+                printf("argument must be under 6\n");
+                exit(0);
+        }   
+    
+        int cmd = atoi(argv[1]);
+
+        int key_id;
+        if((key_id = msgget((key_t) 123, IPC_CREAT | 0666)) == -1){
+                printf("msgget failed\n");
+                return 1;
+        }   
+    
+        ipcMsg msg;
+        msg.msgtype = 1;
+        msg.ipcmsg_t = cmd;
+
+        if(argv[2] != NULL){
+                printf("%d\n", msg.pno);
+                msg.pno = atoi(argv[2]);
+        }   
+
+
+        switch(msg.ipcmsg_t){
+                case ACTIVE :{
+                        if(msgsnd(key_id, &msg, (sizeof(ipcMsg) - sizeof(long)), 0) == -1){
+                                printf("send msg error.\n");
+                                exit(0);
+                        } else {
+                                printf("[IPC TYPE %d] : send msg complete\n", cmd);
+                                printf("argv[2] is %d\n", msg.pno);
+                        }
+                        break;
+                }
+
+                case DEACTIVE :{
+                        if(msgsnd(key_id, &msg, (sizeof(ipcMsg) - sizeof(long)), 0) == -1){
+                                printf("send msg error.\n");
+                                exit(0);
+                        } else {
+                                printf("[IPC TYPE %d] : send msg complete\n", cmd);
+                                printf("argv[2] is %d\n", msg.pno);
+                        }
+                        break;
+                }
+
+                case ACTIVE_ALL :{
+                        if(msgsnd(key_id, &msg, (sizeof(ipcMsg) - sizeof(long)), 0) == -1){
+                                printf("send msg error.\n");
+                                exit(0);
+                        } else {
+                                printf("[IPC TYPE %d] : send msg complete\n", cmd);
+                                printf("argv[2] is %d\n", msg.pno);
+                        }
+                        break;
+                }
+
+                case DEACTIVE_ALL :{
+                        if(msgsnd(key_id, &msg, (sizeof(ipcMsg) - sizeof(long)), 0) == -1){
+                                printf("send msg error.\n");
+                                exit(0);
+                        } else {
+                                printf("[IPC TYPE %d] : send msg complete\n", cmd);
+                                printf("argv[2] is %d\n", msg.pno);
+                        }
+                        break;
+                }
+
+                case STOP_ALL :{
+                        if(msgsnd(key_id, &msg, (sizeof(ipcMsg) - sizeof(long)), 0) == -1){
+                                printf("send msg error.\n");
+                                exit(0);
+                        } else {
+                                printf("[IPC TYPE %d] : send msg complete\n", msg.ipcmsg_t);
+                        }
+                        break;
+                }
+
+                default :{
+                        printf("invalid parameter\n");
+                        exit(0);
+                }
+
+        }
+
+        return 0;
+}
+```
