@@ -23,7 +23,7 @@ int main(){
   attron(COLOR_PAIR(1));
   printw("Hello, World!");
   attroff(COLOR_PAIR(1));
-  refresH();
+  refresh();
   getch();
   endwin();
   return 0;
