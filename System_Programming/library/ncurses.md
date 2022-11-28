@@ -19,7 +19,7 @@ ncurses.h
 int main(){
   initscr();
   start_color();
-  init_pare(1, COLOR_RED, COLOR_WHITE);
+  init_pair(1, COLOR_RED, COLOR_WHITE);
   attron(COLOR_PAIR(1));
   printw("Hello, World!");
   attroff(COLOR_PAIR(1));
