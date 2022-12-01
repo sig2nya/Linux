@@ -27,5 +27,5 @@ int main(){
  - compile
    > gcc -o ncurses ncurses.c -lncurses
 
-<h3>결과<h3>
+<h3>결과 : 아래 화면이 3초간 출력된 뒤, 원래 화면으로 전환된다.<h3>
 <img width="452" alt="image" src="https://user-images.githubusercontent.com/70207093/204939829-1eb0bd13-87ff-446a-aafa-c0ddeb809960.png">
