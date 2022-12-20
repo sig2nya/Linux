@@ -1,31 +1,27 @@
-* 참고 : https://blackinkgj.github.io/ncurses/
+* 참고 : [https://blackinkgj.github.io/ncurses/](https://wiki.kldp.org/wiki.php/NCURSES-Programming-HOWTO#s-1.4.4)
 
-Tutorial
-========
- - 역시 프로그래밍의 시작은 "Hello, World"이다. ncurses를 사용하여, "Hello, World"를 3초간 출력한 뒤에 종료하는 프로그램을 작성해보자.
+Hello, World!
+=============
+ - 역시 프로그래밍의 시작은 "Hello, World"이다. ncurses를 사용하여, "Hello, World"를 출력해보자.
 
-<h3>ncurses.c</h3>
+<h3>hello.c</h3>
 
 ```c
-#include<ncurses.h>
-#include<stdio.h>
 
-int func1(){
-  initscr();
-  mvprintw(0, 0, "Hello, World");
-  refresh();
-  sleep(3);
-  endwin();
-  return 0;
-}
+#include<ncurses.h>
 
 int main(){
-  return func1();
+    initscr();
+    printw("Hello World!!!");
+    refresh();
+    getch();
+    endwin();
+    
+    return 0;
 }
 ```
-
  - compile
-   > gcc -o ncurses ncurses.c -lncurses
+   > gcc -o hello hello.c -lncurses
 
-<h3>결과 : 아래 화면이 3초간 출력된 뒤, 원래 화면으로 전환된다.<h3>
-<img width="452" alt="image" src="https://user-images.githubusercontent.com/70207093/204939829-1eb0bd13-87ff-446a-aafa-c0ddeb809960.png">
+<h3> 결과 </h3>
+<img width="425" alt="image" src="https://user-images.githubusercontent.com/70207093/208558313-990020eb-1f77-425c-b591-88e092b4b5ef.png">
