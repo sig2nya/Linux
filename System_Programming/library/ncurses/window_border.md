@@ -1,4 +1,5 @@
 <h3>window_border.c</h3>
+
 ```c
 #include<ncurses.h>
 
