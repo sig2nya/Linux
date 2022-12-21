@@ -86,3 +86,6 @@ void print_menu(WINDOW *menu_win, int highlight){
     wrefresh(menu_win);
 }
 ```
+
+<h3>결과</h3>
+<img width="324" alt="image" src="https://user-images.githubusercontent.com/70207093/208852550-5972de08-c5a4-40ea-9770-dcc1724fe7ed.png">
