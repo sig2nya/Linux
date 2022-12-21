@@ -70,4 +70,19 @@ int main(){
         
         return 0;
 }
+
+void print_menu(WINDOW *menu_win, int highlight){
+    int x, y, i;
+    x = 2; y = 2;
+    box(menu_win, 0, 0);
+    for(i = 0; i < n_choices; ++i){
+        if(highlight == i + 1){
+            wattron(menu_win, A_REVERS);
+            mvwprintw(menu_win, y, x, "%s", choices[i]);
+            wattroff(menu_win, A_REVERS);
+        } else mvwprintw(menu_win, y, x, "%s", choices[i]);
+        ++y;
+    }
+    wrefresh(menu_win);
+}
 ```
