@@ -120,6 +120,9 @@ void print_in_middle(WINDOW *win, int starty, int startx, int width, char *strin
 }                                                                                                 
 ```
 
+Compile 수행시, -lncurses와 -lpanel 옵션을 같이 주어야 한다.
+===========================================================
+
 <h3>결과1</h3>
 <img width="469" alt="image" src="https://user-images.githubusercontent.com/70207093/208859992-9d522852-f850-4cde-9c52-41854ebac0a8.png">
 
