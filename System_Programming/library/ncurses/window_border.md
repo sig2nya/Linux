@@ -77,5 +77,14 @@ void destroy_win(WINDOW *local_win){
 }
 ```
 
+<h3>설명</h3>
+ - 이 프로그램은 상하좌우의 방향키로 이동 가능한 직사각형의 윈도우를 생성한다.
+ - 사용자가 키를 누를때마다 반복적으로 윈도우를 없애고 다시 만든다.
+ - create_newwin() : newwin()을 통해 윈도우를 생성하며 box 함수로 그 테두리를 출력
+ - destroy_win() : 윈도우의 테두리를 ' '문자로 치환하여 윈도우를 지우고, 그 후 delwin() 함수를 호출하여 관련 메모리 해제
+ - 사용자가 누르는 키에 따라 starty / startx 값이 바뀌고 새 윈도우가 생성
+ - COLS / LINES : initscr() 이후에 화면 크기에 맞게 값이 초기화되며 이 변수들은 화면의 넓이나 위 프로그램처럼 화면의 정중앙의 위치를 찾는데 유용
+ - getch() : scanf와 같이 keyboard로부터 입력을 수행
+
 <h3>결과</h3>
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/70207093/208827551-51b13867-7bff-4276-9f3c-17833f6f7c15.png">
