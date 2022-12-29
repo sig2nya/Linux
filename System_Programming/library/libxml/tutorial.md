@@ -85,3 +85,14 @@ void parseStory(xmlDocPtr doc, xmlNodePtr cur){
   return;
 }
 ```
+
+Writing element content
+=======================
+ - 설명 : Elements 내용을 추가하는 것은 이전 과정과 많은 부분이 동일하며, 문서를 불러와 해석, 원하는 노드 검색, 내용 추가 순으로 이루어진다.
+ - 다음은 "storyinfo" Element를 찾아서 keyword를 추가하고 파일로 저장한다.
+```C
+void parseStory(xmlDocPtr doc, xmlNodePtr cur, char *keyword){
+  xmlNewTextChild(cur, NULL, "keyword", keyword);
+  return;
+}
+```
