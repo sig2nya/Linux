@@ -7,6 +7,24 @@ Introduction
  - - Attribute를 Elements에 추가
  - - Attribute 값 추출
 
+Sample XML File
+===============
+```xml
+<?xml version="1.0"?>
+<story>
+    <storyinfo>
+        <author>John Fleck</author>
+        <datewritten>June 2, 2002</datewritten>
+        <keyword>example keyword</keyword>
+    </storyinfo>
+ 
+    <body>
+        <headline>This is the headline</headline>
+        <para>This is the body text.</para>
+    </body>
+</story>
+```
+
 Data Types
 ==========
  - xmlChar : UTF-8로 인코딩된 character type. UTF-8이 아닐 경우, 반드시 UTF-8로 변환하여 사용
@@ -39,3 +57,31 @@ if(xmlStrcmp(cur -> name, (const xmlChar *) "story")){ // root element의 name�
 }
 ```
 
+Retrieving element content
+==========================
+ - 설명 : Elements의 내용 추출을 위해서 document tree에서 해당 element를 찾아야한다. "story" Element로부터 "keyword"라는 Element를 찾는 예제.
+```C
+cur = cur -> xmlChildrenNode; // cur의 첫번째 child node를 가져온다. 여기서 cur은 root element인 story이다.
+while(cur != NULL){ // "story" Element의 childs 중에서 "storyinfo"인 Element를 찾는다. 해당 Element를 찾으면 parseStory()를 호출
+ if((!xmlStrcmp(cur -> name, (const xmlChar *) "storyinfo"))){
+   parseStory(doc, cur);
+ }
+ 
+ cur = cur -> next;
+}
+
+void parseStory(xmlDocPtr doc, xmlNodePtr cur){
+  xmlChar *key;
+  cur = cur -> xmlChildrenNode; // 첫 번째 자식노드를 가져온다
+  while(cur != NULL){
+    if((!xmlStrcmp(cur -> name, (const xmlChar *) "keyword"))){
+      key = xmlNodeListGetString(doc, cur -> xmlChildrenNode, 1); // "keyword" node를 찾으면 xmlNodeListGetString()을 이용하여 출
+      printf("keyword : %s\n", key);
+      xmlFree(key); // xmlNodeListGetString()은 memory space에 공간을 allocation 하므로 반드시 memory free 
+    }
+    cur = cur -> next;
+  }
+  
+  return;
+}
+```
